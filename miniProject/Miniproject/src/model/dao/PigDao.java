@@ -1,21 +1,41 @@
 package model.dao;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.InvalidPropertiesFormatException;
+import java.util.Properties;
 
 import common.PigTemplate;
 import model.vo.PigMember;
 
 public class PigDao {
+	
+private Properties prop = new Properties();
+	
+	public PigDao() {
+		try {
+			prop.loadFromXML(new FileInputStream("resources/query.xml"));
+			
+		} catch (InvalidPropertiesFormatException e) {
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public int insertMember(Connection conn, PigMember pm) {
 		
 		int result = 0;
 		PreparedStatement pstmt = null;
-		String sql = "INSERT INTO PIGMANAGE VALUES(SEQ_PNUM.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = prop.getProperty("insertMember");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -50,7 +70,7 @@ public class PigDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = "SELECT * FROM PIGMANAGE";
+		String sql = prop.getProperty("selectList");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -90,15 +110,17 @@ public class PigDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "UPDATE PIGMANAGE " // 띄워쓰기 조심
-				+ "SET BIRTH = ?,"
-			   	   + "GENDER = ?,"
-				    + "BREED = ?,"
-		      + "BIRTHWEIGHT = ?,"
-				+ "FINALDATE = ?,"
-			  + "FINALWEIGHT = ?,"
-				     + "PSEL = ?"
-			 + "WHERE UNINUM = ?";
+//		String sql = "UPDATE PIGMANAGE " // 띄워쓰기 조심
+//				+ "SET BIRTH = ?,"
+//			   	   + "GENDER = ?,"
+//				    + "BREED = ?,"
+//		      + "BIRTHWEIGHT = ?,"
+//				+ "FINALDATE = ?,"
+//			  + "FINALWEIGHT = ?,"
+//				     + "PSEL = ?"
+//			 + "WHERE UNINUM = ?";
+		
+		String sql = prop.getProperty("modifyPigMem");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -129,8 +151,9 @@ public class PigDao {
 		int result = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "DELETE FROM PIGMANAGE "
-   			     	+ "WHERE UNINUM = ?";
+//		String sql = "DELETE FROM PIGMANAGE "
+//   			     	+ "WHERE UNINUM = ?";
+		String sql = prop.getProperty("deletePigMem");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -153,7 +176,8 @@ public class PigDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = "SELECT * FROM PIGMANAGE WHERE UNINUM = ?";
+//		String sql = "SELECT * FROM PIGMANAGE WHERE UNINUM = ?";
+		String sql = prop.getProperty("searchByUniNum");
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -194,7 +218,8 @@ public class PigDao {
 		PreparedStatement pstmt = null;
 		ResultSet rset = null;
 		
-		String sql = "SELECT * FROM PIGMANAGE";
+//		String sql = "SELECT * FROM PIGMANAGE";
+		String sql = prop.getProperty("breedselectList");
 		
 		try {			
 			pstmt = conn.prepareStatement(sql);

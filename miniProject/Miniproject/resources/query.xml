@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="insertMember">
+		INSERT INTO PIGMANAGE 
+		VALUES(SEQ_PNUM.NEXTVAL, ?, ?, ?, ?, ?, ?, ?, ?)
+	</entry>
+	<entry key="selectList">
+		SELECT * 
+		FROM PIGMANAGE 
+		ORDER BY UNINUM
+	</entry>
+	<entry key="modifyPigMem">
+		UPDATE PIGMANAGE 
+		SET BIRTH = ?,
+			GENDER = ?,
+			BREED = ?,
+			BIRTHWEIGHT = ?,
+			FINALDATE = ?,
+			FINALWEIGHT = ?,
+			PSEL = ?,
+		WHERE UNINUM = ?
+	</entry>
+	<entry key="deletePigMem">
+		DELETE 
+		FROM PIGMANAGE 
+		WHERE UNINUM = ?
+	</entry>
+	<entry key="searchByUniNum">
+		SELECT *  
+		FROM PIGMANAGE 
+		WHERE UNINUM = ?
+	</entry>
+	<entry key="breedselectList">
+		SELECT * 
+		FROM PIGMANAGE 
+		ORDER BY UNINUM
+	</entry>
+	<entry key="breedselectList">
+		SELECT * 
+		FROM PIGMANAGE 
+		WHERE UNINUM 
+	</entry>
+</properties>
