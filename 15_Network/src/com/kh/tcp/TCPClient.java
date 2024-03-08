@@ -52,7 +52,7 @@ public class TCPClient {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
 		
 		
 //		BufferedReader br = null; // 한줄씩 가져오기 위해..?
@@ -110,8 +110,9 @@ public class TCPClient {
 //			}
 //
 //		}
-//		sc.close();
+		sc.close();
 		
+	
 		
 		
 		

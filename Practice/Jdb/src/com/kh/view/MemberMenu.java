@@ -56,7 +56,7 @@ public class MemberMenu {
 				
 //				System.out.print("아이디 : ");
 //				String userId = sc.nextLine();
-				mc.deleteMember();
+//				mc.deleteMemberthis.inputMemberId()); 만들다 말아서 오류
 				break;
 				
 			case 5 :

@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import com.kh.common.JDBCTemplate;
 import com.kh.model.dao.MemberDao;
 import com.kh.model.vo.Member;
-import com.kh.view.MemberMenu;
 
 public class MemberService {
 	// 1) JDBC driver 등록

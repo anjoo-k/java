@@ -26,7 +26,7 @@ public class Run {
 //		// 수학점수 : 100
 //		// 국어점수 : 75
 //		//최지원님의 평균 : 85
-//		Scanner sc = new Scanner(System.in);
+		Scanner sc = new Scanner(System.in);
 //		
 //		System.out.print("이름:");
 //		String name = sc.next();

@@ -27,23 +27,23 @@ public class MusicController {
 	
 	
 	public Music searchMusic(String title) {
-		// list에 넣은 music 타이틀 목록 중에 있는지 검색
-		
-		for(Music m : ()list) {
-			
-		}
-		
-		
-		List searchList = new ArrayList();
-		for(Object obj : list) {
-			if(obj instanceof Music) {
-				Music music = (Music) obj;
-				if(music.getTitle().equals(title)) {
-					searchList.add(music);
-					return searchList;
-				}
-			}
-		}
+//		// list에 넣은 music 타이틀 목록 중에 있는지 검색
+//		
+//		for(Music m : ()list) {
+//			
+//		}
+//		
+//		
+//		List searchList = new ArrayList();
+//		for(Object obj : list) {
+//			if(obj instanceof Music) {
+//				Music music = (Music) obj;
+//				if(music.getTitle().equals(title)) {
+//					searchList.add(music);
+//					return searchList;
+//				}
+//			}
+//		}
 		return null;
 		
 		
