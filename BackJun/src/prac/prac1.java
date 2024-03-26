@@ -4,26 +4,32 @@ import java.util.Scanner;
 
 public class prac1 {
 	public static void main(String[] args) {
-		
-//		Scanner sc = new Scanner(System.in);
-//        String str = sc.next();
-//        int n = sc.nextInt();
-//        System.out.println(str.repeat(n)); 여기엔 없는듯?
-		
-        Scanner sc = new Scanner(System.in);
-        String a = sc.next();
 
-        for(int i = 0; i < a.length(); i++) {
-        	if(a.charAt(i) >= 97 && a.charAt(i) <= 122) {
-        		System.out.println(a.toUpperCase().charAt(i));
-        	} else {
-        		System.out.println(a.toLowerCase().charAt(i));
-        	}
-        }
-        
-        System.out.println("!");
-       
-	    }
+		Scanner sc = new Scanner(System.in);
+		String my_string = sc.next();            
+		String overwrite_string = sc.next();
+		int s = my_string.length() - overwrite_string.length();
+		
+		prac1 prac1 = new prac1();
+		String answer = prac1.solution(my_string, overwrite_string, s);
+		
+		System.out.println(answer);
+			
+	
 	}
+	public String solution(String my_string, String overwrite_string, int s) {
+
+		String answer = "";
+		String str = "";
+		for(int i = 0; i < s; i++) {
+			str += my_string.charAt(i);
+		}
+		answer = str + overwrite_string;
+	    return answer;
+	    }
+}
+
+	
+
 
 
